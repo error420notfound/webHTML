@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light and Dark Mode Text Color</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: color 0.5s; /* Smooth transition for color changes */
+    }
+
+    h1 {
+      color: black; /* Default text color */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black; /* Dark mode background color */
+      }
+
+      h1 {
+        color: white; /* Dark mode text color */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dynamic Text Color</h1>
+  <p>This is a sample text.</p>
+
+</body>
+</html>
