@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heading and SVG Example</title>
+  <!-- Import the component -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    model-viewer {
+      height: 100%;
+      width: 100%;
+    }
+
+    .imgbox {
+      position: relative;
+    }
+
+    #lazy-load-poster {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url("https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/view_in_ar/wght200/48px.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #button-load {
+      background-image: url("https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/view_in_ar/wght200/48px.svg");
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+      background-position: 6% 50%;
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      display: inline-block;
+      padding: 10px 18px 9px 40px;
+      font-weight: 500;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, .25);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Use it like any other HTML element -->
+  <div class="imgbox">
+    <model-viewer load="lazy" disable-zoom disable-tap auto-rotate shadow-intensity="1" src="https://cdn.glitch.global/66c13f4d-4064-485d-a387-eda5dc67c61b/pipe-chair-glb-web%20exp%202.glb?v=1676140289586&custom=https://example.com/customBanners/comingSoonBanner.html" camera-controls touch-action="pan-y" id="orbit-demo" shadow-intensity="1" ar ios-src="https://github.com/error420notfound/Chair-AR/blob/main/Pipe%20Chair%201%203%20chairs.usdz?raw=true#custom=https://error420notfound.github.io/webHTML/html1.html&customHeight=large&allowsContentScaling=0" 
+                  alt="A 3D model" generate-schema>
+      <button class="center-fit" slot="ar-button" style="background-color: rgba(255, 255, 255, .5);-webkit-backdrop-filter: blur(1em);
+      backdrop-filter: blur(1em);  border: 0px; border-radius: 40px; margin:   0; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); z-index: 100; width: 120px; height: 40px;">
+        👋 View in AR
+      </button>
+      <script>
+        (() => {
+          const modelViewer = document.querySelector('#orbit-demo');
+          const orbitCycle = [
+            '45deg 55deg ',
+            '-60deg 110deg ',
+            '-30deg 30deg ',
+            '60deg 120deg ',
+            modelViewer.cameraOrbit
+          ];
+
+          setInterval(() => {
+            const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+            modelViewer.cameraOrbit =
+              orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+          }, 2500);
+        })();
+      </script>
+
+      <script type="application/javascript">
+        const linkElement = document.querySelector('model-viewer');
+        linkElement.addEventListener("message", function (event) {
+          if (event.data === "_apple_ar_quicklook_button_tapped") {
+            // Handle the user tap.
+            window.location.href = "https://your-desired-url.com";
+          }
+        }, false);
+      </script>
+  </model-viewer>
+</div>
+</body>
+</html>
