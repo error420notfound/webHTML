@@ -10,18 +10,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      max-width: 100%;
+      width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
       display: -webkit-flex; /* For older WebKit browsers */
-    }
-    /* Styling for the button image */
-    .button-image {
-      width: 100vh;
-      height: auto;
-      cursor: pointer;
     }
 
     /* Styling for the modal content */
@@ -32,22 +26,31 @@
 
     /* Styling for the close button */
     .close {
-      position: center;
-      top: 0px;
-      right: 0px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
       color: #fff;
       cursor: pointer;
+    }
+
+    /* Styling for the button image */
+    .button-image {
+      width: auto;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* Styling for the image in the modal */
+    .modal-content img {
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- Image as a button to open the modal -->
-<img src="https://raw.githubusercontent.com/error420notfound/webHTML/7e082795420af57a90c81794b11c4bbf83410965/AR_CTA_Button_2_a.svg" alt="Open Modal" onclick="openModal()" style="cursor: pointer;">
-<!-- Button to open the modal -->
-<button onclick="openModal()">
-  <img src="https://raw.githubusercontent.com/error420notfound/webHTML/7e082795420af57a90c81794b11c4bbf83410965/AR_CTA_Button_2_a.svg">
-</button>
+<!-- Image as a button to open the modal -->
+<img class="button-image" src="https://raw.githubusercontent.com/error420notfound/webHTML/a987057f93a6f728bbdfb87d5bd5e880f46b1cf0/AR_CTA_Button_2_a.svg" alt="Open Modal" onclick="openModal()">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
