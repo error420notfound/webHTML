@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer Blur and Background Blur</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('your-background-image.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); /* Adjust the background blur intensity */
+        }
+
+        .blur-layer {
+            width: 300px; /* Adjust the layer width */
+            height: 200px; /* Adjust the layer height */
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the layer background color and opacity */
+            border-radius: 10px; /* Adjust the layer border radius */
+            backdrop-filter: blur(10px); /* Adjust the initial layer blur intensity */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333; /* Adjust the text color */
+            font-size: 18px; /* Adjust the text font size */
+            font-weight: bold;
+            transition: backdrop-filter 0.3s ease; /* Add transition for smooth effect */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var blurLayer = document.querySelector('.blur-layer');
+
+            blurLayer.addEventListener('mouseover', function () {
+                blurLayer.style.backdropFilter = 'blur(0)'; /* Adjust the layer blur intensity on hover */
+            });
+
+            blurLayer.addEventListener('mouseout', function () {
+                blurLayer.style.backdropFilter = 'blur(10px)'; /* Adjust the initial layer blur intensity on mouseout */
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="blur-layer">
+        Your Content Goes Here
+    </div>
+</body>
+</html>
