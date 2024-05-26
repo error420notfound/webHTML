@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Design</title>
+  <style>
+    .product-design {
+      font-size: 4em; /* Default size for desktop */
+    }
+
+    @media screen and (max-width: 768px) { /* Target screens less than 768px wide (mobile) */
+      .product-design {
+        font-size: 2em; /* Smaller size for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <span class="product-design">Product Design</span>
+</body>
+</html>
