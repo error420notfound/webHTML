@@ -1,45 +1,43 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Product Design Text</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Importing a custom font */
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        * {
             margin: 0;
-            background-color: #f0f0f0; /* Background color for better visibility */
-            font-family: 'Roboto', sans-serif; /* Applying the custom font */
+            padding: 0;
         }
-        .container {
-            position: relative;
-            z-index: 10; /* Adjust z-index as needed */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100vw; /* Adjust as needed, 80% of viewport width */
+        html, body {
+            height: 100%;
+            width: 100%;
         }
-        .centered-text {
-            display: flex;
-            justify-content: space-between;
-            flex-grow: 1;
-            font-size: 2em; /* Setting the text size */
-        }
-        .centered-text span {
-            white-space: nowrap;
+        model-viewer {
+            height: 100%;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="centered-text">
-            <span style="text-align: left;">Product</span>
-            <span style="text-align: right;">Design</span>
-        </div>
+    <div class="imgbox">
+        <model-viewer 
+		poster="https://error420notfound.github.io/Chair-AR/Frame%201.png"
+            src="https://error420notfound.github.io/Chair-AR/pipe-chair-glb-web%20exp%202.glb"
+           ar-modes="scene-viewer webxr quick-look" ios-src="https://error420notfound.github.io/Chair-AR/Pipe%20Chair%201%203%20chairs.usdz?raw=true"
+            alt="A 3D model"
+                      interaction-prompt="none"  
+                     
+            camera-controls 
+                      auto-rotate 
+            disable-pan 
+            disable-zoom 
+            disable-tap 
+            shadow-intensity="1"
+            camera-orbit="60deg 95deg 4m"
+            ar
+            reveal="auto" 
+            loading="lazy"
+            id="orbit-demo"
+            generate-schema>
+        </model-viewer>
     </div>
 </body>
 </html>
