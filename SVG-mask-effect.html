@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Mask Effect</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .frame {
+            display: block;
+            flex: 0 0 auto;
+            pointer-events: none;
+            position: relative;
+            border-radius: 0px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            height: 100%;
+            width: 100%;
+            transform: none;
+            
+            -webkit-mask-image: url('https://error420notfound.github.io/webHTML/emergency_FILL0_wght400_GRAD0_opsz24.svg');
+            mask-image: url('https://error420notfound.github.io/webHTML/emergency_FILL0_wght400_GRAD0_opsz24.svg');
+            -webkit-mask-repeat: repeat;
+            mask-repeat: repeat;
+        }
+
+        .layer {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame" >
+        <iframe src='https://error420notfound.github.io/webHTML/maskedGradient.html' width="100%" height="100%"></iframe>
+
+        </div>
+        
+</body>
+</html>
