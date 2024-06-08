@@ -1,0 +1,46 @@
+<html lang="en">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 200%;
+            width: 100vw;
+        }
+        model-viewer {
+            height: 50vh;
+            width: 100vw;
+            position: fixed;
+            bottom: 50%;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="imgbox">
+        <model-viewer 
+		poster="https://error420notfound.github.io/Chair-AR/Frame%201.png"
+            src="https://error420notfound.github.io/Chair-AR/pipe-chair-glb-web%20exp%202.glb"
+           ar-modes="scene-viewer webxr quick-look" ios-src="https://error420notfound.github.io/Chair-AR/Pipe%20Chair%201%203%20chairs.usdz?raw=true"
+            alt="A 3D model"
+                      interaction-prompt="none"  
+                     
+            camera-controls 
+            camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) calc(5m - env(window-scroll-y) * 4m)"
+            disable-pan 
+            disable-zoom 
+            disable-tap 
+            shadow-intensity="1"
+            camera-orbit="60deg 95deg 4m"
+            ar
+            reveal="auto" 
+            loading="lazy"
+            id="orbit-demo"
+            generate-schema>
+        </model-viewer>
+    </div>
+</body>
+</html>
