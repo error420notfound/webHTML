@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Blur Effect</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .frame {
+            display: block;
+            flex: 0 0 auto;
+            pointer-events: none;
+            position: relative;
+            border-radius: 0px;
+            overflow-x: visible;
+            overflow-y: visible;
+            height: 100%;
+            width: 100%;
+            transform: none;
+            background-image:  url('https://error420notfound.github.io/webHTML/emergency_FILL0_wght400_GRAD0_opsz24.svg');
+            background-repeat: repeat;
+        }
+
+      
+
+        .layer {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame" style="z-index: 11;">
+        
+        <div class="layer" style=" backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); mask-image: linear-gradient(in srgb-linear to bottom, rgba(0, 0, 0, 0.05) 5%, rgba(0, 0, 0, 0.95) 95%); 
+        -webkit-mask-image: linear-gradient(in srgb-linear to bottom, rgba(0,0,0,0.05) 5%,  rgba(0, 0, 0, 0.95) 95%); z-index: 2;"></div>
+        
+       
+            
+    </div>
+</body>
+</html>
+
