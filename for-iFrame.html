@@ -18,6 +18,7 @@
         model-viewer {
             height: 100vh;
             width: 100vw;
+          touch-action: none;
             position: fixed;
             top:  0%;
             right: 0;
@@ -49,7 +50,6 @@ poster="https://error420notfound.github.io/Chair-AR/Frame%201.png"
        ar-modes="scene-viewer webxr quick-look" ios-src="https://error420notfound.github.io/Chair-AR/Pipe%20Chair%201%203%20chairs.usdz?raw=true"
         alt="A 3D model"
                   interaction-prompt="none"  
-                 touch-action= none;
         camera-controls 
         camera-orbit="calc(-15deg + env(window-scroll-y) * 60deg) calc(60deg + env(window-scroll-y) * 30deg) calc(3m - env(window-scroll-y) * 0m)"
         disable-pan 
