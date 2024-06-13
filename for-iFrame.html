@@ -40,24 +40,13 @@
         radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%); /* Center Gradient (Overlaid) */
       background-repeat: no-repeat;
     }
-    .container-top {
-      padding-top: 100vh;
-      height: 100vh;
-     width: 100vw;
-      
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.0); /* Add a background for visibility */
+     .non-interactable {
+      pointer-events: none;
     }
-    .container-bottom {
-      
-      height:100vh;
-      width:100vw;
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0); /* Add a background for visibility */
+    .interactable-button {
+      pointer-events: auto; /* Enable interaction for the button */
     }
+    
   </style>
 </head>
 <body>
