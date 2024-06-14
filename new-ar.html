@@ -73,6 +73,15 @@
         radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%); /* Center Gradient (Overlaid) */
       background-repeat: no-repeat;
     }
+    .button-container {
+  /* Styles for the div container (optional) */
+  /* For example: */
+  /* width: 200px; */
+  /* margin: 10px; */
+  /* padding: 5px; */
+  /* border: 1px solid #ccc; */
+}
+
     .center-fit {
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-backdrop-filter: blur(10px);
@@ -121,7 +130,10 @@
     generate-schema>
     <div id="lazy-load-poaster" slot="poster"></div>
     <div id="button-load" slot="poster">Load 3D View</div>
-    <button slot="ar-button" id="center-fit">Launch Immersive View</button>
+    <div class="button-container">
+  <button>Launch Immersive View</button>
+</div>
+
   </model-viewer>
 
  <script>
