@@ -134,16 +134,19 @@
     disable-tap 
     shadow-intensity="1"
     shadow-softness="0.456"
+    minimumRenderScale="1"
+    slot="progress-bar"
+    ar-scale="fixed"
     ar
-    modelIsVisible="false"
+    modelIsVisible="true"
     
     loading="eager"
     
     
     generate-schema>
-    <div class="button-container">
+
   <button class="center-fit" slot-"ar-button">Click Me!</button>
-</div>
+
 
     <div id="lazy-load-poaster" slot="poster"></div>
     <div id="button-load" slot="poster">Load 3D View</div>
@@ -151,10 +154,7 @@
 
   </model-viewer>
 
- <script>
-  document.querySelector('#button-load').addEventListener('click',
-    () => document.querySelector('#lazy-load').dismissPoster());
- </script>
+ 
   
     
   </div>
