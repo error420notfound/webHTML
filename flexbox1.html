@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .logo {
+            height: 100%;
+            width: auto;
+            
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a, .view-ar {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover, .view-ar:hover {
+            text-decoration: underline;
+        }
+        .view-ar {
+            background-color: #007bff;
+            color: white;
+        }
+        .view-ar:hover {
+            background-color: #0056b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+        .container {
+            padding: 0px;
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: DodgerBlue;
+            gap: 20px;
+            padding: 20px;
+        }
+        .flex-container > div {
+            background-color: #f1f1f1;
+            flex-basis: calc(50% - 10px);
+            text-align: center;
+            line-height: calc(100vh - 120px);
+            font-size: 30px;
+        }
+        @media (max-width: 600px) {
+            .flex-container > div {
+                flex-basis: 100%;
+                
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .flex-container > div {
+                flex-basis: calc(33.33% - 13.33px);
+                line-height: calc(80vh - 120px);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://github.com/error420notfound/webHTML/raw/main/s%20logo.svg">
+        </div>
+        <div class="nav-links">
+            <a href="#features">Spatial Computing</a>
+            <a href="#discover">Read</a>
+            <a href="#gallery">About Me</a>
+            <a href="#gallery">contact</a>
+        </div>
+        <a href="#ar" class="view-ar">View in AR</a>
+    </nav>
+    <div class="container">
+        <h1></h1>
+        <div class="flex-container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+        </div>
+    </div>
+</body>
+</html>
