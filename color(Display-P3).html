@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom OKLAB Color Palette Example</title>
+    <style>
+        :root {
+            --color-50-R: color(display-p3 0.996078 0.956863 0.933333 / 1.000000);
+            --color-100-R: color(display-p3 0.992157 0.905882 0.843137 / 1.000000);
+            --color-200-R: color(display-p3 0.976471 0.792157 0.686275 / 1.000000);
+            --color-300-R: color(display-p3 0.960784 0.647059 0.486275 / 1.000000); 
+            --color-400-R: color(display-p3 0.941176 0.462745 0.278431 / 1.000000); 
+            --color-500-R: color(display-p3 0.929412 0.345098 0.160784 / 1.000000); 
+            --color-600-R: color(display-p3 0.870588 0.227451 0.094118 / 1.000000); 
+            --color-700-R: color(display-p3 0.721569 0.160784 0.086275 / 1.000000); 
+            --color-800-R: color(display-p3 0.572549 0.141176 0.101961 / 1.000000); 
+            --color-900-R: color(display-p3 0.572549 0.141176 0.101961 / 1.000000);
+            --color-950-R: color(display-p3 0.250980 0.050980 0.039216 / 1.000000); 
+
+            --color-50-G: color(display-p3 0.949020 0.996078 0.937255 / 1.000000);
+            --color-100-G: color(display-p3 0.882353 1.000000 0.850980 / 1.000000);
+            --color-200-G: color(display-p3 0.768627 0.988235 0.713725 / 1.000000);
+            --color-300-G: color(display-p3 0.576471 0.972549 0.490196 / 1.000000);
+            --color-400-G: color(display-p3 0.356863 0.921569 0.239216 / 1.000000);
+            --color-500-G: color(display-p3 0.207843 0.827451 0.078431 / 1.000000);
+            --color-600-G: color(display-p3 0.149020 0.686275 0.039216 / 1.000000);
+            --color-700-G: color(display-p3 0.141176 0.588235 0.050980 / 1.000000);
+            --color-800-G: color(display-p3 0.117647 0.423529 0.058824 / 1.000000);
+            --color-900-G: color(display-p3 0.101961 0.345098 0.058824 / 1.000000);
+            --color-950-G: color(display-p3 0.031373 0.192157 0.007843 / 1.000000);
+
+            --color-50-B: color(display-p3 0.929412 0.972549 1.000000 / 1.000000);
+            --color-100-B: color(display-p3 0.839216 0.933333 1.000000 / 1.000000);
+            --color-200-B: color(display-p3 0.713725 0.890196 1.000000 / 1.000000);
+            --color-300-B: color(display-p3 0.517647 0.827451 1.000000 / 1.000000);
+            --color-400-B: color(display-p3 0.294118 0.725490 1.000000 / 1.000000);
+            --color-500-B: color(display-p3 0.129412 0.592157 1.000000 / 1.000000);
+            --color-600-B: color(display-p3 0.129412 0.592157 1.000000 / 1.000000);
+            --color-700-B: color(display-p3 0.011765 0.345098 0.882353 / 1.000000);
+            --color-800-B: color(display-p3 0.039216 0.294118 0.764706 / 1.000000);
+            --color-900-B: color(display-p3 0.058824 0.266667 0.600000 / 1.000000);
+            --color-950-B: color(display-p3 0.058824 0.160784 0.360784 / 1.000000);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: black;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px color-mix(in oklab, var(--color-900-R) 10%, transparent);
+            margin-bottom: 20px; 
+        }
+
+
+
+        .color-box-R {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid var(--color-300-R);
+        }
+
+        .color-box-G {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: var(--color-50-G);
+            display: inline-block;
+            border: 1px solid var(--color-300-G);
+        }
+
+        .color-box-B {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid var(--color-300-B);
+        }
+
+        .color-50-R { background-color: var(--color-50-R); }
+        .color-100-R { background-color: var(--color-100-R); }
+        .color-200-R { background-color: var(--color-200-R); }
+        .color-300-R { background-color: var(--color-300-R); }
+        .color-400-R { background-color: var(--color-400-R); }
+        .color-500-R { background-color: var(--color-500-R); }
+        .color-600-R { background-color: var(--color-600-R); }
+        .color-700-R { background-color: var(--color-700-R); }
+        .color-800-R { background-color: var(--color-800-R); }
+        .color-900-R { background-color: var(--color-900-R); }
+        .color-950-R { background-color: var(--color-950-R); }
+
+        .color-50-G { background-color: var(--color-50-G); }
+        .color-100-G { background-color: var(--color-100-G); }
+        .color-200-G { background-color: var(--color-200-G); }
+        .color-300-G { background-color: var(--color-300-G); }
+        .color-400-G { background-color: var(--color-400-G); }
+        .color-500-G { background-color: var(--color-500-G); }
+        .color-600-G { background-color: var(--color-600-G); }
+        .color-700-G { background-color: var(--color-700-G); }
+        .color-800-G { background-color: var(--color-800-G); }
+        .color-900-G { background-color: var(--color-900-G); }
+        .color-950-G { background-color: var(--color-950-G); }
+
+        .color-50-B { background-color: var(--color-50-B); }
+        .color-100-B { background-color: var(--color-100-B); }
+        .color-200-B { background-color: var(--color-200-B); }
+        .color-300-B { background-color: var(--color-300-B); }
+        .color-400-B { background-color: var(--color-400-B); }
+        .color-500-B { background-color: var(--color-500-B); }
+        .color-600-B { background-color: var(--color-600-B); }
+        .color-700-B { background-color: var(--color-700-B); }
+        .color-800-B { background-color: var(--color-800-B); }
+        .color-900-B { background-color: var(--color-900-B); }
+        .color-950-B { background-color: var(--color-950-B); }
+
+        button {
+            background-color: var(--color-600-R);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--color-700-R);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="background-color: var(--color-50-R)">
+        <h1 style="color: var(--color-950-R)">Custom Display-P3 Color Palette Example</h1>
+        <p>This page demonstrates the use of a custom color palette implemented with CSS variables using OKLAB color space.</p>
+        
+        <div>
+            <div class="color-box-R color-50-R"></div>
+            <div class="color-box-R color-100-R"></div>
+            <div class="color-box-R color-200-R"></div>
+            <div class="color-box-R color-300-R"></div>
+            <div class="color-box-R color-400-R"></div>
+            <div class="color-box-R color-500-R"></div>
+            <div class="color-box-R color-600-R"></div>
+            <div class="color-box-R color-700-R"></div>
+            <div class="color-box-R color-800-R"></div>
+            <div class="color-box-R color-900-R"></div>
+            <div class="color-box-R color-950-R"></div>
+        </div>
+
+        <p>The colors above represent our custom OKLAB palette from 50 to 950.</p>
+
+        <button style="background-color: var(--color-500-R)">Sample Button</button>
+    </div>
+    <div class="container" style="background-color: var(--color-50-G)">
+        <h1 style="color: var(--color-950-G)">Custom Display-P3 Color Palette Example</h1>
+        <p>This page demonstrates the use of a custom color palette implemented with CSS variables using OKLAB color space.</p>
+        
+        <div>
+            <div class="color-box-G color-50-G"></div>
+            <div class="color-box-G color-100-G"></div>
+            <div class="color-box-G color-200-G"></div>
+            <div class="color-box-G color-300-G"></div>
+            <div class="color-box-G color-400-G"></div>
+            <div class="color-box-G color-500-G"></div>
+            <div class="color-box-G color-600-G"></div>
+            <div class="color-box-G color-700-G"></div>
+            <div class="color-box-G color-800-G"></div>
+            <div class="color-box-G color-900-G"></div>
+            <div class="color-box-G color-950-G"></div>
+        </div>
+
+        <p>The colors above represent our custom OKLAB palette from 50 to 950.</p>
+
+        <button style="background-color: var(--color-500-G)">Sample Button</button>
+    </div>
+    <div class="container" style="background-color: var(--color-50-B)">
+        <h1 style="color: var(--color-950-B)">Custom Display-P3 Color Palette Example</h1>
+        <p>This page demonstrates the use of a custom color palette implemented with CSS variables using OKLAB color space.</p>
+        
+        <div>
+            <div class="color-box-B color-50-B"></div>
+            <div class="color-box-B color-100-B"></div>
+            <div class="color-box-B color-200-B"></div>
+            <div class="color-box-B color-300-B"></div>
+            <div class="color-box-B color-400-B"></div>
+            <div class="color-box-B color-500-B"></div>
+            <div class="color-box-B color-600-B"></div>
+            <div class="color-box-B color-700-B"></div>
+            <div class="color-box-B color-800-B"></div>
+            <div class="color-box-B color-900-B"></div>
+            <div class="color-box-B color-950-B"></div>
+        </div>
+
+        <p>The colors above represent our custom OKLAB palette from 50 to 950.</p>
+
+        <button style="background-color: var(--color-500-B)">Sample Button</button>
+    </div>
+</body>
+</html>
