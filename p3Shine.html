@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>P3 + Perceived Brightness Test</title>
+
+<style>
+  body {
+    background: #0e0e0e;
+    color: #ccc;
+    font-family: system-ui, sans-serif;
+    padding: 40px;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #888;
+  }
+
+  .row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    width: 260px;
+  }
+
+  .label {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 12px;
+  }
+
+  .button {
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+  }
+
+  /* ---------- BASE (sRGB) ---------- */
+  .base {
+    background: #ff6a00;
+    color: black;
+  }
+
+  /* ---------- ENHANCED (filters + glow) ---------- */
+  .enhanced {
+    background: #ff6a00;
+    color: black;
+
+    filter: brightness(115%) contrast(110%) saturate(115%);
+
+    box-shadow:
+      0 0 8px rgba(255,120,0,0.5),
+      0 0 24px rgba(255,80,0,0.4);
+  }
+
+  /* ---------- P3 ONLY ---------- */
+  .p3 {
+    background: color(display-p3 1 0.4 0);
+    color: black;
+  }
+
+  /* ---------- P3 + ENHANCED ---------- */
+  .p3-enhanced {
+    background: color(display-p3 1 0.4 0);
+    color: black;
+
+    filter: brightness(115%) contrast(110%) saturate(120%);
+
+    box-shadow:
+      0 0 10px rgba(255,120,0,0.6),
+      0 0 32px rgba(255,80,0,0.5);
+  }
+
+  /* headline test */
+  .headline {
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+
+  .p3-headline {
+    color: color(display-p3 1 0.3 0);
+  }
+
+  .enhanced-headline {
+    color: #ff6a00;
+    text-shadow:
+      0 0 6px rgba(255,120,0,0.6),
+      0 0 20px rgba(255,80,0,0.4);
+  }
+
+  .p3-enhanced-headline {
+    color: color(display-p3 1 0.3 0);
+    text-shadow:
+      0 0 8px rgba(255,120,0,0.7),
+      0 0 28px rgba(255,80,0,0.5);
+  }
+
+  .status {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #666;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Perceived Brightness / P3 Test</h1>
+
+<div class="row">
+  <div class="card">
+    <div class="label">Base (sRGB)</div>
+    <div class="button base">Button</div>
+    <div class="headline">Headline</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Enhanced (Glow + Filters)</div>
+    <div class="button enhanced">Button</div>
+    <div class="headline enhanced-headline">Headline</div>
+  </div>
+
+  <div class="card">
+    <div class="label">P3 Only</div>
+    <div class="button p3">Button</div>
+    <div class="headline p3-headline">Headline</div>
+  </div>
+
+  <div class="card">
+    <div class="label">P3 + Enhanced</div>
+    <div class="button p3-enhanced">Button</div>
+    <div class="headline p3-enhanced-headline">Headline</div>
+  </div>
+</div>
+
+<div class="status" id="status"></div>
+
+<script>
+// detect P3 support
+const supportsP3 = CSS.supports('color', 'color(display-p3 1 0 0)');
+
+document.getElementById('status').textContent =
+  supportsP3
+    ? 'Display-P3 is supported on this device/browser.'
+    : 'Display-P3 is NOT supported. P3 colors are falling back to sRGB.';
+</script>
+
+</body>
+</html>
