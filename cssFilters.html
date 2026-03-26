@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS filter comparison</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: monospace;
+    padding: 40px;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  .section {
+    margin-bottom: 50px;
+  }
+
+  .row {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .block {
+    text-align: center;
+  }
+
+  img {
+    width: 160px;
+    height: 160px;
+    border: 1px solid #444;
+    display: block;
+  }
+
+  .label {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<h2>CSS filter comparison</h2>
+
+<div id="container"></div>
+
+<script>
+// ---------- base image (high contrast, high saturation) ----------
+const size = 64;
+const canvasSrc = document.createElement('canvas');
+canvasSrc.width = size;
+canvasSrc.height = size;
+const ctx = canvasSrc.getContext('2d');
+
+// gradient + stripes + color variation
+for (let y = 0; y < size; y++) {
+  for (let x = 0; x < size; x++) {
+
+    const r = Math.floor((x / size) * 255);
+    const g = Math.floor((y / size) * 255);
+    const b = (x % 8 < 4) ? 255 : 0; // hard stripe for contrast
+
+    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+    ctx.fillRect(x, y, 1, 1);
+  }
+}
+
+const dataURL = canvasSrc.toDataURL();
+
+// ---------- filter definitions ----------
+const filters = [
+  { name: 'blur', values: ['0px', '2px', '4px', '6px', '8px'] },
+  { name: 'brightness', values: ['0%', '50%', '100%', '150%', '200%'] },
+  { name: 'contrast', values: ['0%', '50%', '100%', '150%', '200%'] },
+  { name: 'opacity', values: ['0%', '50%', '100%', '150%', '200%'] },
+  { name: 'saturate', values: ['0%', '50%', '100%', '150%', '200%'] }
+];
+
+const labels = ['0%', '50%', '100%', '150%', '200%'];
+
+const container = document.getElementById('container');
+
+// ---------- render ----------
+filters.forEach(filter => {
+
+  const section = document.createElement('div');
+  section.className = 'section';
+
+  const title = document.createElement('div');
+  title.textContent = filter.name;
+  title.style.marginBottom = '12px';
+  section.appendChild(title);
+
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  filter.values.forEach((val, i) => {
+    const block = document.createElement('div');
+    block.className = 'block';
+
+    const img = document.createElement('img');
+    img.src = dataURL;
+
+    img.style.filter = `${filter.name}(${val})`;
+
+    const label = document.createElement('div');
+    label.className = 'label';
+    label.textContent = labels[i];
+
+    block.appendChild(img);
+    block.appendChild(label);
+    row.appendChild(block);
+  });
+
+  section.appendChild(row);
+  container.appendChild(section);
+});
+</script>
+
+</body>
+</html>
