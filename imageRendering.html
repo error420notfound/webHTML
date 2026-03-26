@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>image-rendering test</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: monospace;
+    padding: 40px;
+  }
+
+  .row {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .block {
+    text-align: center;
+  }
+
+  img {
+    width: 256px;   /* force upscale */
+    height: 256px;
+    border: 1px solid #444;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+
+  .crisp {
+    image-rendering: crisp-edges;
+  }
+
+  canvas {
+    image-rendering: pixelated; /* important for canvas scaling */
+  }
+</style>
+</head>
+<body>
+
+<h2>image-rendering comparison</h2>
+
+<div class="row">
+  <div class="block">
+    <p>default</p>
+    <img id="img-default">
+  </div>
+
+  <div class="block">
+    <p>pixelated</p>
+    <img id="img-pixelated" class="pixelated">
+  </div>
+
+  <div class="block">
+    <p>crisp-edges</p>
+    <img id="img-crisp" class="crisp">
+  </div>
+</div>
+
+<h3 style="margin-top:40px;">canvas (control case)</h3>
+<canvas id="canvas" width="16" height="16" style="width:256px;height:256px;border:1px solid #444;"></canvas>
+
+<script>
+const size = 16;
+
+// create source canvas (this was missing)
+const canvasSrc = document.createElement('canvas');
+canvasSrc.width = size;
+canvasSrc.height = size;
+const ctx = canvasSrc.getContext('2d');
+
+// color palette
+const colors = [
+  '#ff0033',
+  '#ff7a00',
+  '#ffd500',
+  '#00ff99',
+  '#00c3ff',
+  '#6a00ff'
+];
+
+// generate striped pattern
+for (let y = 0; y < size; y++) {
+  for (let x = 0; x < size; x++) {
+
+    const stripeWidth = 2;
+    const index = Math.floor(x / stripeWidth) % colors.length;
+
+    const offset = Math.sin(y * 0.8) * 0.5;
+    const finalIndex = Math.abs(Math.floor(index + offset)) % colors.length;
+
+    ctx.fillStyle = colors[finalIndex];
+    ctx.fillRect(x, y, 1, 1);
+  }
+}
+
+// convert to image
+const dataURL = canvasSrc.toDataURL();
+
+// assign to images
+document.getElementById('img-default').src = dataURL;
+document.getElementById('img-pixelated').src = dataURL;
+document.getElementById('img-crisp').src = dataURL;
+
+// visible canvas
+const canvas = document.getElementById('canvas');
+const ctx2 = canvas.getContext('2d');
+
+// disable smoothing (critical)
+ctx2.imageSmoothingEnabled = false;
+
+ctx2.drawImage(canvasSrc, 0, 0);
+</script>
+
+</body>
+</html>
